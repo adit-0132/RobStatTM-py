@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "robstattm"
+version = "0.1.0"
+description = "Python wrappers for the RobStatTM R package"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "rpy2>=3.5",
+    "numpy>=1.22",
+]
+
+[project.optional-dependencies]
+pandas = ["pandas>=1.5"]
+polars = ["polars>=0.19"]
+dev    = ["pytest>=7", "pandas>=1.5", "polars>=0.19"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
